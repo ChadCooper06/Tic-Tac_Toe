@@ -24,6 +24,7 @@ class App {
     async checkForWin() {
         if (currentClicks > 5) {
             //clickhandler
+            
         }
     }
 
@@ -37,6 +38,11 @@ class App {
         }else if (player1Click){
             player = player2;
         }
+    }
+
+    playerCounter(player1, player2) {
+        let counter1 = player1;
+        let counter2 = player2;
     }
 
     
@@ -74,7 +80,11 @@ class GameController {
 clickHandler() {
     currentClicks = clicks;
     for(let i=0; i>5; i++) {
+        if(clicks >5) {
 
+        }
     }
 }
+
+
 

@@ -72,5 +72,5 @@ Controller-- sets state at each event and handles the events
       * will have to count the number of clicks and then activate this when needed and on every click after
 
   - the win condition alert is going to use the comparison of the WIN_CON array to the board to see if any player has fulfilled the needed conditions (they clicked on all three squares in a specified array in the nested array) first.
-      * 
+      * if state stores the current clicked buttons for each player then you compare that list with the WIN_CON array to see if it matches any of them
 
