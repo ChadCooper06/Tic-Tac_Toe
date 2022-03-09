@@ -14,15 +14,9 @@ Model-- all constants
   - the win conditions (array of arrays showing win possibilities)
       * each smaller array in the large array is going to be searched to see if the squares it lists are completed or not 
 
-  - the design of the individual squares?
-      * squares are an empty div that has nothing written in it 
-  - the layout of the board and the original state where every square is empty?
-      * same as above
-      * an array of squares
-
   - the title which shows in every state change
 
-  - the button that shows in every state that restarts it all and clears the state to the original
+  - the button that shows in every state that restarts it all and clears the state to the original // VIEW
       * this is its own function that runs on INIT and on click of the resetBtn
 
   - whose turn it is based on who just clicked (player 1 starts)
@@ -34,11 +28,19 @@ Model-- all constants
   - Alert message info saying that it is a draw or that a certain player has won
 
 
+
 View-- what is shown
   - the title is shown always
 
   - the reset button is shown always (eventListener is bound here that calls controller to reset state to original)
       * it's own listener or use the same one as the squares?
+
+- the design of the individual squares? // VIEW
+      * squares are an empty div that has nothing written in it 
+
+  - the layout of the board and the original state where every square is empty? // VIEW
+      * same as above
+      * an array of squares
 
   - the game board that is 9 squares (3x3) and their states based on if they have been clicked or not and by whom (one eventListener bound here that controls every square) is shown always
       * an array of empty <divs> created by the JS that are square in shape with a solid border between them and that each have an event listener bound to them
@@ -52,7 +54,7 @@ View-- what is shown
   - use a grid for the board-from boostrap?
       * create the grid of squares using bootstrap placed inline with the JS to give them their shapes and borders
 
-  - alert message pops up to say that a certain player has won or that it was a draw
+  - alert message pops up to say that a certain player has won or that it was a draw if win conditions are matched
 
 
 Controller-- sets state at each event and handles the events
@@ -60,9 +62,10 @@ Controller-- sets state at each event and handles the events
       * this is the same as INIT and is called upon first opening the page or when the resetBtn is clicked
 
   - when each square is clicked -eventListener- that square changes its innerText to the currentPlayer and the whole state of the board is updated to show
-      * 
+      * this then makes the current player switch to the other player
 
   - when a square (button) is clicked, the eventListener for that square is disabled so only squares that are "null" can be clicked- maybe that square is popped from the array of squares the eventListener has
+        * or the eventListener is just disabled for the button after it is clicked
 
   - builds the board after each event(init, reset click, square click) and updates the currentState
       * the board is going to be always in the original state where everything shows except the innerText of the squares (null until clicked by either player1-x- or player2-o-)
@@ -70,6 +73,18 @@ Controller-- sets state at each event and handles the events
   - checks the squares on the board every click after the 5th one to see if a win condition has occurred
       * any checking before this is unnecessary computing because there cannot be a win in less than 5 moves if each person takes a turn
       * will have to count the number of clicks and then activate this when needed and on every click after
+
+        async checkForWin() {
+            for(let i=0; i<WIN_CONS.length; i++) {
+                
+                if(counter1 === WIN_CONS[[]]){
+                    return "`${currentPlayer}` wins!"
+                } 
+                return "No winner!"
+            }
+        }
+
+      // Attack win conditions problem with pseudocode and then code like a morning warmup in sandbox
 
   - the win condition alert is going to use the comparison of the WIN_CON array to the board to see if any player has fulfilled the needed conditions (they clicked on all three squares in a specified array in the nested array) first.
       * if state stores the current clicked buttons for each player then you compare that list with the WIN_CON array to see if it matches any of them
