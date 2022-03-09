@@ -1,35 +1,34 @@
 //MODEL
 
-//Constants
-
-//const INIT = ""//run a function on initialization- same function that will reset it
 const WIN_CONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 const TITLE = "Tic-Tac-Toe";
 const RESET = "Reset Game";
 const PLAYER1 = "X";
 const PLAYER2 = "O";
-const TILES = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const BOARD = []
 
 
 function init() {
-    resetBtn.addEventListener('click', )
+    currentPlayer = PLAYER1;
+    currentState = gameBoard
+    resetBtn.addEventListener('click', fn)
 }
 //Classes
 
 class App {
     constructor() {
-        this.title = "TITLE";
-        this.board = "currentState"
-        //this.tile = []
-        this.player = "currentPlayer"
-        this.resetBtn = "RESET";
+        this.title;
+        this.board;
+        this.player;
+        this.resetBtn;
 
     }
 
     setState() {
-        this.state = currentState;
-        this.player = currentPlayer;
-        //this.g.
+        if(player1Click) {
+
+        }
+        
     }
 
     currentPlayer() {
@@ -39,41 +38,41 @@ class App {
             player = PLAYER2;
         }
     }
-    /*
-    playerCounter(player1, player2) {
-        this.counter1 = player1;
-        this.counter2 = player2;
+    
+  /*  
+    playerCount(player1, player2){
+        let counter1 = [];
+        let counter2 = [];
+        for(let i=0; i< TILES.length; i++) {
+            if(player1Click) {
+                
+            }
+        }
+    
         this.currentPlayerArr = this.currentPlayer.tilesClicked(fn);
             tile
     }
-    */
     
+    
+    */
 }
-
 
 //VIEW
 //includes render function, binding of the button click, state, pop up msg saying who won
 class GameView {
     constructor() {
         this.title = this.createElement('h1')
-            this.title.textContent = "TITLE";
-        this.board = this.createElement('div')
-            this.board.textContent = this.createTiles();
+            this.title.innerHTML = "TITLE";
+        this.board = getElementById('grid')
+            this.cell = this.createElement('col');
+                this.board.appendChild(this.cell)
+            
         this.resetBtn = this.createElement('button')
-            this.resetBtn.textContent = "RESET";
+            this.resetBtn.innerHTML = "RESET";
         this.app.append(this.title, this.board, this.resetBtn)
-    }
-
-    createTiles(){
-
-        const tile = document.createElement('div');
-            if(tile) element.createElement('tile');
-                
-    document.body.appendChild(board)
-    }
         
-
-
+    }
+    
     bindButtonClick(fn) {
         this.button.addEventListener('click', fn);
     }
@@ -82,10 +81,22 @@ class GameView {
         this.tile.addEventListener('click', fn);
     }
 
+    changeTile() {
+        let 
+        for(let i=0; i<BOARD.length; i++){
+            if(BOARD[i] === 'clicked'){
+                if(player1Click){
+                    BOARD[i].innerText = PLAYER1;
+                }else if (player2Click) {
+                    BOARD[i].innerText = PLAYER2
+
+                }
+            }
+        }
+    }
+
 
 }
-
-//currentState() {}
 
 
 
@@ -94,10 +105,10 @@ class GameView {
 class GameController {
     constructor(App, GameView) {
         this.a = App;
-        this.g = GameView;
-        this.g.bindButtonClick(this.clickHandler.bind(this));
-        this.g.bindTileClick(this.addTileListener.bind(this));
-        //this.g.
+        this.v = GameView;
+        this.v.bindButtonClick(this.clickHandler.bind(this));
+        this.v.bindTileClick(this.addTileListener.bind(this));
+        this.v.
 
     }
     
@@ -110,12 +121,16 @@ class GameController {
         }
     }
 
-    addTileListener() {
+    setGameBoard() {
+        //return array with length 9 and uses current state of board, switches player and updates the 
+    }
+
+    /*addTileListener() {
         tileArr.forEach(tile => {
             tile.addEventListener;
         });
     }
-
+    */
         //may switch this to add numbers to see if a win is met....1=X or 3=O (check this against the board itself)
         //if 3 and no null spaces then X wins || if 9 then O wins || else no one wins
     async checkForWin() {
@@ -131,17 +146,9 @@ class GameController {
     }
 
 
-    buttonClick() {
-
-    }
-
-    tileClick() {
-        
-    }
-
     
 }
-
+const app = new(GameController(new App(), new GameView))
 /*
 let currentBoard = document.getElementById("container").createElement(div);
 
