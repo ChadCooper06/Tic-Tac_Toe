@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style rel="stylesheet">
-            .app{
-            width:fit-content;
-            height: fit-content;
+        #gameBoard{
+            width:300px;
+            height: 300px;
             margin: 0 auto;
             display: flex;
             flex-direction: row;
@@ -28,20 +29,26 @@
         }
         h1{
             text-align: center;
+            font-size: 30px;
+        }
+        button{
+            margin-top: 30px;
         }
         </style>
     </head>
 
     <body>
-            <h1 id="title"></h1>
+        <h1 id="title">Tic-Tac-Toe</h1>
 
-            <div id="gameBoard">
-                <div id="gameOver"></div>
-                    <p id=""><span id="winner"></span></p>
-              
-            </div>
-            
+        <div id="gameBoard">
+               
         </div>
+        <!--<div id="gameOver"><p id="alert"></p></div>-->
+
+
+        <button id="resetBtn">Reset Game</button>
+            
+       
         <script src="/sandbox.js"></script>
     </body>
 </html>
