@@ -2,11 +2,15 @@ const CONTAINER = document.getElementById("gameBoard");
 const SQUAREARRAY = [];
 const NEXTPLAYER = "";
 
-function gameOver(message){
-    message = alert(this.state +" wins!");
-    document.getElementById("winner").innerHTML = message;
-    gameBoard.style.display = "none";
-    document.getElementById("gameOver").style.display = "block";
+function gameOver(){
+    if(winGame !== false){
+    alert(this.state +" wins!");
+    } else {
+        alert("I see only losers")
+    }
+    //document.getElementById("winner").innerHTML = message;
+    //gameBoard.style.display = "none";
+    //document.getElementById("gameOver").style.display = "block";
 }
 
     //runs if the game is a draw
