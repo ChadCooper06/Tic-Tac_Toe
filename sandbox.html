@@ -3,21 +3,32 @@
     <head>
         <meta charset="utf-8">
         <style rel="stylesheet">
-            .app {
-                justify-content: center;
-                align-content: center;
-                text-align: center;
-                width: 400px;
-                height: 1000px;
-            }
-            #board {
-                display: grid;  
-                grid-template-columns: 1fr 1fr 1fr;  
-                grid-template-rows: 100px 100px 100px;
-                border: 1px solid black;
-            } 
-            
-            
+            .app{
+            width:fit-content;
+            height: fit-content;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .square{
+            border: 1px solid black;
+            width: 30%;
+            resize: none;
+            height: 35%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .square p{
+            font-size: 90px;
+            font-weight: bold;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
         </style>
     </head>
 
@@ -29,7 +40,7 @@
               
             </div>
             
-            <button id="resetBtn" style="margin:10px" onclick="init">Reset Game</button>
+            <button id="resetBtn" style="margin:10px">Reset Game</button>
         
         </div>
         <script src="/sandbox.js"></script>
