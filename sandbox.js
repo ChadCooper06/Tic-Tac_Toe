@@ -41,7 +41,7 @@ function winGame(){
     return false;
 }
 
-class ClassSquare{
+class GameSquare{
     constructor(element, index){
         this.element=element;
         this.index=index;
@@ -63,7 +63,7 @@ class ClassSquare{
 for(let index=0; index<9; index++) {
     const div = document.createElement("div");
     div.classList.add("square", "notClicked");
-    const square = new ClassSquare(div, index);
+    const square = new GameSquare(div, index);
         div.onclick = function() {
             square.clicked();
         };
