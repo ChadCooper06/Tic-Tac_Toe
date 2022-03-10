@@ -29,14 +29,14 @@ changePlayer(){
         this.currentPlayer = "X";
     }
 }
-
+}
     
 
 //VIEW
 
 class GameView {
     constructor() {
-        this.app = this.getElement("#root")
+        this.app = this.getElement("#app")
         this.title = this.createElement("h1")
         this.title.textContent = "Tic-Tac-Toe"
 
