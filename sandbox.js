@@ -1,13 +1,15 @@
-const CONTAINER = document.getElementById("board");
+const CONTAINER = document.getElementById("gameBoard");
 const SQUAREARRAY = [];
-const NEXTPLAYER = "X";
+const NEXTPLAYER = "";
 
 function gameOver(message){
+    message = alert(this.state +" wins!");
     document.getElementById("winner").innerHTML = message;
-    app.style.display = "none";
+    gameBoard.style.display = "none";
     document.getElementById("gameOver").style.display = "block";
 }
 
+    //runs if the game is a draw
 function drawGame(){
     let shouldReturn = true;
     SQUAREARRAY.forEach(({state}) => {
@@ -18,14 +20,7 @@ function drawGame(){
 
 function winGame(){
     const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 6],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 6], [2, 5, 8], [0, 4, 8], [2, 4, 6],
     ];
     for(let i=0; i<lines.length; i++) {
         const [a, b, c] = lines[i];
@@ -41,6 +36,7 @@ function winGame(){
     return false;
 }
 
+//VIEW
 class GameSquare{
     constructor(element, index){
         this.element=element;
@@ -54,20 +50,25 @@ class GameSquare{
             return false;
         };
         this.element.querySelector("p").innerHTML = this.state;
-            if(winGame()) return gameOver(this.state +" wins!");
-            if(drawGame()) return gameOver("No winner")
+            if(winGame()) {
+                return gameOver;
+            }
+            if(drawGame()) {
+                return gameOver;
+            }
         NEXTPLAYER == "X" ? (NEXTPLAYER = "O") : (NEXTPLAYER = "X");
     }
 }
-
-for(let index=0; index<9; index++) {
-    const div = document.createElement("div");
-    div.classList.add("square", "notClicked");
-    const square = new GameSquare(div, index);
-        div.onclick = function() {
-            square.clicked();
-        };
-    div.appendChild(document.createElement("p"));
-    app.appendchild(div);
-    SQUAREARRAY.push(square);
+function closeCell(){
+    for(let index=0; index<9; index++) {
+        const div = document.createElement("div");
+        div.classList.add("cell", "notClicked");
+        const cell = new GameSquare(div, index);
+            div.onclick = function() {
+                cell.clicked();
+            };
+        div.appendChild(document.createElement("p"));
+        app.appendchild(div);
+        SQUAREARRAY.push(cell);
+    }
 }
