@@ -28,7 +28,7 @@ function winGame(){
         [3, 4, 5], 
         [6, 7, 8], 
         [0, 3, 6], 
-        [1, 4, 6], 
+        [1, 4, 7], 
         [2, 5, 8], 
         [0, 4, 8], 
         [2, 4, 6],
@@ -71,7 +71,7 @@ class GameSquare{ //my actual squares
         this.element.onclick = function() {
             return false;
         };
-        this.element.querySelector("p").innerHTML = this.state; //when a win is met this 
+        this.element.querySelector("p").innerHTML = this.state; //checks for win or draw and then calls the gameOver
            if(winGame()) return gameOver(this.state + " wins!")
            if(drawGame()) return gameOver("I see only losers");
         currentPlayer == "X" ? (currentPlayer = "O") : (currentPlayer = "X");
