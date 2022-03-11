@@ -21,7 +21,7 @@ function drawGame(){
     return shouldReturn;
 }
 
-
+    //runs if game has a winner
 function winGame(){
     const winCons = [
         [0, 1, 2], 
@@ -33,13 +33,13 @@ function winGame(){
         [0, 4, 8], 
         [2, 4, 6],
     ];
-    for(let i=0; i<winCons.length; i++) {
+    for(let i=0; i<winCons.length; i++) { //for loop that checks the above nested array
         const [a, b, c] = winCons[i];
 
-        if(
+        if( //if these are matching then there is a win
             squareArray[a].state !== "" &&
-            squareArray[b].state === squareArray[b].state &&
-            squareArray[c].state === squareArray[c].state
+            squareArray[a].state === squareArray[b].state &&
+            squareArray[a].state === squareArray[c].state
         ) {
             return true;
         }
@@ -48,25 +48,25 @@ function winGame(){
 }
 
 //VIEW
-class GameSquare{
+class GameSquare{ //my actual squares
     constructor(element, index){
         this.element = element;
         this.index = index;
         this.state = "";
     }
-    clicked() {
+    clicked() { //when clicked this runs and removes the not clicked class as well as the ability to click it at all
         this.state = currentPlayer;
         this.element.classList.remove("notClicked");
         this.element.onclick = function() {
             return false;
         };
-        this.element.querySelector("p").innerHTML = this.state;
+        this.element.querySelector("p").innerHTML = this.state; //when a win is met this 
            if(winGame()) return gameOver(this.state + " wins!")
            if(drawGame()) return gameOver("I see only losers");
         currentPlayer == "X" ? (currentPlayer = "O") : (currentPlayer = "X");
     }
 }
-
+    //this builds my actual squares and appends the created p to each before appending the square to the div and the div to the HTML
 for(let index = 0; index < 9; index++) {
     const div = document.createElement("div");
     div.classList.add("square", "notClicked");
