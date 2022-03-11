@@ -46,6 +46,17 @@ function winGame(){
     }
     return false;
 }
+/*
+element.addEventListener('click', restart) {
+    document.getElementById("resetBtn").innerText("Restart Game")
+}
+
+function restart() {
+    this.container = document.getElementById("gameBoard");
+    this.squareArray = [];
+    this.currentPlayer = "X";
+}
+*/
 
 //VIEW
 class GameSquare{ //my actual squares
