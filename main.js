@@ -1,4 +1,4 @@
-    //only one class 
+//only one class 
 let container = document.getElementById("gameBoard");
 let squareArray = [];
 let currentPlayer = "X";
